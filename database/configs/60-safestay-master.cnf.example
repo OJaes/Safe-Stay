@@ -1,0 +1,8 @@
+# Source-based example (not a verified live export)
+# Original file edited: /etc/mysql/mariadb.conf.d/50-server.cnf
+# For deployment, merge carefully with the existing [mysqld] section.
+# Network exposure must be restricted by host and pfSense firewall rules.
+[mysqld]
+bind-address = 0.0.0.0
+server-id = 1
+log_bin = /var/log/mysql/mysql-bin.log

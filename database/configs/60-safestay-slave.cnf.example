@@ -1,0 +1,8 @@
+# Combined from initial Slave and later MaxScale/failover setup notes.
+# Not a verified export of the final running VM.
+# Merge carefully with the existing MariaDB [mysqld] section.
+[mysqld]
+bind-address = 0.0.0.0
+server-id = 2
+log_bin = /var/log/mysql/mysql-bin.log
+log_slave_updates = 1

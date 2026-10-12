@@ -1,0 +1,37 @@
+# Sanitized excerpt based on the project's /etc/maxscale.cnf notes.
+# Not a verified complete live configuration. Review before deployment.
+# The addresses below are from the historical DB/PMM setup notes.
+
+[server1]
+type=server
+address=172.30.1.61
+port=3306
+protocol=MariaDBBackend
+
+[server2]
+type=server
+address=172.30.1.62
+port=3306
+protocol=MariaDBBackend
+
+[MariaDB-Monitor]
+type=monitor
+module=mariadbmon
+servers=server1,server2
+user=maxscale
+password=REPLACE_WITH_STRONG_SECRET
+auto_failover=true
+auto_rejoin=true
+
+[Read-Write-Service]
+type=service
+router=readwritesplit
+servers=server1,server2
+user=maxscale
+password=REPLACE_WITH_STRONG_SECRET
+
+[Read-Write-Listener]
+type=listener
+service=Read-Write-Service
+protocol=MariaDBClient
+port=4000
