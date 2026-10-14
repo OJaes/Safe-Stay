@@ -14,8 +14,8 @@ session_start();
         /* 네비게이션 바 */
         header { background: #1a252f; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; }
-        .logo a { color: white; text-decoration: none; }
-        nav { display: flex; align-items: center; }
+	.logo a { color: white; text-decoration: none; }
+	nav { display: flex; align-items: center; }
         nav a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.95rem; }
         nav a:hover, nav a.active { color: #f39c12; }
         .user-welcome { color: #f39c12; font-weight: bold; margin-left: 20px; font-size: 0.95rem; }
@@ -72,13 +72,13 @@ session_start();
 
     <!-- 네비게이션 바 -->
     <header>
-        <div class="logo"><a href="/">🛡️  SafeStay</a></div>
+        <div class="logo"><a href="/">🛡️ SafeStay</a></div>
         <nav>
             <a href="/about.php">소개</a>
             <a href="/rooms.php" class="active">객실안내</a>
             <a href="/booking.php">예약하기</a>
 
-            <?php if (isset($_SESSION['user_id'])): ?>
+	    <?php if (isset($_SESSION['user_id'])): ?>
                 <!-- 로그인 상태일 때 표시 -->
                 <span class="user-welcome">👋 <?= htmlspecialchars($_SESSION['name']) ?>님</span>
                 <a href="/logout.php" class="btn-logout">로그아웃</a>
@@ -104,16 +104,15 @@ session_start();
             <div>
                 <div class="section-title">객실 소개</div>
                 <p class="room-intro">
-                    프리미엄 스위트는 침실과 넓은 별도 거실 공간이 분리되어 있어 최상급 프라이버시를 보
-장합니다.
-                    파노라마 뷰로 펼쳐지는 환상적인 전경과 함께 2인 무료 뷔페 조식 혜택 및 VIP 전용 웰>컴 드링크 서비스가 함께 제공됩니다.
+                    프리미엄 스위트는 침실과 넓은 별도 거실 공간이 분리되어 있어 최상급 프라이버시를 보장합니다. 
+                    파노라마 뷰로 펼쳐지는 환상적인 전경과 함께 2인 무료 뷔페 조식 혜택 및 VIP 전용 웰컴 드링크 서비스가 함께 제공됩니다.
                 </p>
 
                 <div class="section-title">기본 비치 품목 & 특별 혜택 (Amenities & Benefits)</div>
                 <div class="amenity-grid">
                     <div class="amenity-item">🍳 무료 2인 조식 뷔페</div>
-                    <div class="amenity-item">🛋️  별도 응접실 및 소파</div>
-                    <div class="amenity-item">🛏️  킹 사이즈 침대 1개</div>
+                    <div class="amenity-item">🛋️ 별도 응접실 및 소파</div>
+                    <div class="amenity-item">🛏️ 킹 사이즈 침대 1개</div>
                     <div class="amenity-item">🛁 월풀 스파 욕조</div>
                     <div class="amenity-item">📺 65인치 OLED TV</div>
                     <div class="amenity-item">🍷 웰컴 와인 & 와인셀러</div>

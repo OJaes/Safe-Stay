@@ -14,8 +14,8 @@ session_start();
         /* 네비게이션 바 */
         header { background: #1a252f; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; }
-        .logo a { color: white; text-decoration: none; }
-        nav { display: flex; align-items: center; }
+	.logo a { color: white; text-decoration: none; }
+	nav { display: flex; align-items: center; }
         nav a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.95rem; }
         nav a:hover, nav a.active { color: #f39c12; }
         .user-welcome { color: #f39c12; font-weight: bold; margin-left: 20px; font-size: 0.95rem; }
@@ -72,13 +72,13 @@ session_start();
 
     <!-- 네비게이션 바 -->
     <header>
-        <div class="logo"><a href="/">🛡️  SafeStay</a></div>
+        <div class="logo"><a href="/">🛡️ SafeStay</a></div>
         <nav>
             <a href="/about.php">소개</a>
             <a href="/rooms.php" class="active">객실안내</a>
             <a href="/booking.php">예약하기</a>
 
-            <?php if (isset($_SESSION['user_id'])): ?>
+	    <?php if (isset($_SESSION['user_id'])): ?>
                 <!-- 로그인 상태일 때 표시 -->
                 <span class="user-welcome">👋 <?= htmlspecialchars($_SESSION['name']) ?>님</span>
                 <a href="/logout.php" class="btn-logout">로그아웃</a>
@@ -104,13 +104,13 @@ session_start();
             <div>
                 <div class="section-title">객실 소개</div>
                 <p class="room-intro">
-                    디럭스 킹 객실은 최고급 라텍스 매트리스가 적용된 킹 사이즈 침대와 럭셔리 욕실을 갖>추고 있습니다.
-                    넓은 통창을 통해 들어오는 채광과 아름다운 오션뷰를 감상하며 피로를 풀 수 있는 안락>한 객실입니다.
+                    디럭스 킹 객실은 최고급 라텍스 매트리스가 적용된 킹 사이즈 침대와 럭셔리 욕실을 갖추고 있습니다. 
+                    넓은 통창을 통해 들어오는 채광과 아름다운 오션뷰를 감상하며 피로를 풀 수 있는 안락한 객실입니다.
                 </p>
 
                 <div class="section-title">기본 비치 품목 & 서비스 (Amenities)</div>
                 <div class="amenity-grid">
-                    <div class="amenity-item">🛏️  킹 사이즈 침대 1개</div>
+                    <div class="amenity-item">🛏️ 킹 사이즈 침대 1개</div>
                     <div class="amenity-item">🛁 전용 대리석 욕조</div>
                     <div class="amenity-item">📶 초고속 무료 Wi-Fi</div>
                     <div class="amenity-item">📺 55인치 스마트 TV</div>

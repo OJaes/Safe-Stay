@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // 사용자 존재 여부 및 비밀번호 검증
             if ($user && password_verify($password, $user['password'])) {
-
+                
                 // role 값 정제 (공백 제거 및 소문자화)
                 $user_role = strtolower(trim($user['role'] ?? 'user'));
 

@@ -61,7 +61,7 @@ session_start();
     <header>
         <div class="logo"><a href="/">🛡️ SafeStay</a></div>
         <nav>
-            <a href="/">홈</a>
+            <a href="/about.php">소개</a>
             <a href="/rooms.php" class="active">객실안내</a>
             <a href="/booking.php">예약하기</a>
 

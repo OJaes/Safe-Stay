@@ -72,8 +72,7 @@ if (!isset($_SESSION['user_id'])) {
                 <a href="logout.php" class="btn-logout">로그아웃</a>
             <?php else: ?>
                 <!-- 비로그인 상태일 때 표시 -->
-                <a href="login.php">로그인</a>
-                <a href="register.php">회원가입</a>
+                <a href="login.php">로그인</a>                
             <?php endif; ?>
         </nav>
     </header>

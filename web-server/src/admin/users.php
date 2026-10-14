@@ -13,12 +13,12 @@ require_once '../db.php';
 
 // 3. POST 요청 처리 (권한 변경 및 삭제)
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
-
+    
     // [권한 변경]
     if ($_POST['action'] === 'update_role') {
         $target_user_id = (int)($_POST['user_id'] ?? 0);
         $new_role = $_POST['role'] ?? 'user';
-
+        
         if ($target_user_id === (int)$_SESSION['user_id']) {
             echo "<script>alert('자기 자신의 권한은 변경할 수 없습니다.'); location.href='/admin/users.php';</script>";
             exit;
@@ -156,7 +156,7 @@ try {
         <div class="panel">
             <div class="panel-header">
                 <div class="panel-title">👥 회원 정보 관리 (총 <?= count($users) ?>명)</div>
-
+                
                 <form class="search-form" method="GET" action="/admin/users.php">
                     <input type="text" name="search" class="search-input" placeholder="아이디, 이름, 이메일 검색" value="<?= htmlspecialchars($search) ?>">
                     <button type="submit" class="btn btn-primary">검색</button>

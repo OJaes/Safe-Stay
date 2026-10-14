@@ -118,6 +118,7 @@ if (file_exists($wafLogPath) && is_readable($wafLogPath)) {
                 <!-- 상단 서브 링크 추가 -->
                 <a href="/admin/users.php" class="nav-tool-btn">👥 고객 관리</a>
 
+
                 <a href="/index.php" style="margin-left: 10px;">메인 사이트</a>
                 <a href="/logout.php" style="color: #e74c3c;">로그아웃</a>
             </nav>

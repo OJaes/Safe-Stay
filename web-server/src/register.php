@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 // 4. 원격 DB 서버로 회원 정보 INSERT
                 $insert_stmt = $pdo->prepare("
-                    INSERT INTO users (username, password, name, email, phone)
+                    INSERT INTO users (username, password, name, email, phone) 
                     VALUES (:username, :password, :name, :email, :phone)
                 ");
 
@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 
     <header>
-        <div class="logo"><a href="/">🛡️  SafeStay</a></div>
+        <div class="logo"><a href="/">🛡️ SafeStay</a></div>
         <nav>
             <a href="/about.php">소개</a>
             <a href="/rooms.php">객실안내</a>
@@ -138,7 +138,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
-               <label for="phone">연락처</label>
+                <label for="email">이메일 <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">연락처</label>
                 <input type="tel" id="phone" name="phone" placeholder="010-0000-0000">
             </div>
             <button type="submit" class="btn-register">가입하기</button>

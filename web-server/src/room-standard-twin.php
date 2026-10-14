@@ -14,8 +14,8 @@ session_start();
         /* 네비게이션 바 */
         header { background: #1a252f; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; }
-        .logo a { color: white; text-decoration: none; }
-        nav { display: flex; align-items: center; }
+	.logo a { color: white; text-decoration: none; }
+	nav { display: flex; align-items: center; }
         nav a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.95rem; }
         nav a:hover, nav a.active { color: #f39c12; }
         .user-welcome { color: #f39c12; font-weight: bold; margin-left: 20px; font-size: 0.95rem; }
@@ -28,7 +28,7 @@ session_start();
         .sub-header p { color: #bdc3c7; font-size: 0.95rem; }
 
         /* 메인 컨테이너 */
-       .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
 
         /* 객실 대표 이미지 영역 */
         .room-hero-img { width: 100%; height: 420px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 30px; }
@@ -72,13 +72,13 @@ session_start();
 
     <!-- 네비게이션 바 -->
     <header>
-        <div class="logo"><a href="/">🛡️  SafeStay</a></div>
+        <div class="logo"><a href="/">🛡️ SafeStay</a></div>
         <nav>
             <a href="/about.php">소개</a>
             <a href="/rooms.php" class="active">객실안내</a>
             <a href="/booking.php">예약하기</a>
 
-            <?php if (isset($_SESSION['user_id'])): ?>
+	    <?php if (isset($_SESSION['user_id'])): ?>
                 <!-- 로그인 상태일 때 표시 -->
                 <span class="user-welcome">👋 <?= htmlspecialchars($_SESSION['name']) ?>님</span>
                 <a href="/logout.php" class="btn-logout">로그아웃</a>
@@ -104,13 +104,13 @@ session_start();
             <div>
                 <div class="section-title">객실 소개</div>
                 <p class="room-intro">
-                    스탠다드 트윈 객실은 아늑한 싱글 침대 2개가 배치되어 있어 비즈니스 출장객이나 친구>와의 여행에 최적화된 공간입니다.
+                    스탠다드 트윈 객실은 아늑한 싱글 침대 2개가 배치되어 있어 비즈니스 출장객이나 친구와의 여행에 최적화된 공간입니다. 
                     모던하고 심플한 인테리어와 함께 효율적인 공간 구성으로 편안한 휴식을 선사합니다.
                 </p>
 
                 <div class="section-title">기본 비치 품목 & 서비스 (Amenities)</div>
                 <div class="amenity-grid">
-                    <div class="amenity-item">🛏️  싱글 침대 2개</div>
+                    <div class="amenity-item">🛏️ 싱글 침대 2개</div>
                     <div class="amenity-item">📶 초고속 무료 Wi-Fi</div>
                     <div class="amenity-item">📺 43인치 스마트 TV</div>
                     <div class="amenity-item">❄️ 개별 냉난방 시스템</div>
