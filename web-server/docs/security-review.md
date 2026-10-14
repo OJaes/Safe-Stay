@@ -12,7 +12,7 @@
 | 관리자 CSRF | `admin/users.php`의 역할 변경·회원 삭제 POST에 CSRF 토큰 검사가 보이지 않음 | CSRF 토큰 및 SameSite Cookie 검증 |
 | 관리자 역할 변경 | POST로 받은 `role`을 허용값 검증 없이 SQL 파라미터로 전달 | `user`/`admin` 등 허용 목록 검사 |
 | 예약 금액 | `booking.php`에서 클라이언트가 보낸 `room_type` 값을 1박 가격으로 사용 | 서버의 객실 가격 테이블로 금액 계산 |
-| DB 연결 | 원본은 접속 비밀정보 하드코딩 | 환경 변수 또는 Secret Manager 사용, 기존 비밀번호 교체 |
+| DB 연결 | 접속 비밀정보 하드코딩 | 환경 변수 또는 Secret Manager 사용, 기존 비밀번호 교체 |
 | 관리자 오류 | 일부 DB 예외 내용을 클라이언트 alert에 표시 | 내부 로그만 기록하고 일반화된 오류 반환 |
 | WAF 로그 | 관리자 페이지에서 `/var/log/safestay_waf.log` 파일을 읽도록 구현 | 실제 생성·권한·로테이션·데이터 검증 |
 | 운영 배포 | 서버/DB/WAF의 최종 설정과 테스트 기록 부족 | 통합 테스트, 접근 제어, TLS, 백업, 로그 검증 |
