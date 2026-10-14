@@ -18,8 +18,6 @@ sudo systemctl status apache2 --no-pager
 
 ## 2. 웹 소스 배치
 
-원본 코드의 웹 루트는 `/var/www/html`이며, `db.php`를 여러 페이지에서 `require_once`로 불러옵니다. 공개본은 `src/`에 정리했습니다.
-
 ```bash
 # 테스트 환경에서만 실행. 배포 전 보안 검토 필요.
 sudo cp -r src/. /var/www/html/
