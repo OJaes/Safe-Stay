@@ -1,7 +1,5 @@
 # Network / Interface Configuration
 
-프로젝트 당시의 `pfsense.txt` 및 `pfsense-rule.txt`를 기반으로 정리했습니다. 현재 장비에서 재검증하지 못했습니다.
-
 ## VirtualBox 인터페이스
 
 | Adapter | 연결 방식 | pfSense NIC | 용도 |
