@@ -1,7 +1,5 @@
 # NAT / OpenVPN / Graylog Syslog
 
-`pfsense.txt`의 서비스 설정 기록을 정리했습니다. 현재 pfSense에 접속할 수 없어 재검증하지 못했습니다.
-
 ## 1. NAT Port Forward
 
 | 항목 | 기록된 설정 |
@@ -50,12 +48,8 @@ pfSense 메뉴: `Status → System Logs → Settings → Remote Logging Options`
 | Transport | UDP 514 |
 | Syslog Contents | Everything |
 
-의도한 흐름: pfSense 시스템/방화벽/인증/VPN 로그 → Graylog Syslog Input.
-
-**미확인:** Graylog의 UDP 514 Input 실제 생성 여부 및 최종 로그 수신 성공 여부는 원본 문서에서 통합 후 확인 항목으로 기재되어 있습니다.
+의도한 흐름: pfSense 시스템/방화벽/인증/VPN 로그 → Graylog Syslog Input
 
 ## 4. 임시 관리 인터페이스
 
 - Host-Only `em2` / `OPT4`: `192.168.56.2/24`
-- 기록된 임시 관리 허용: `OPT4 subnet` → `OPT4 address:80/TCP`
-- 임시 관리망 유지/제거 여부와 Web GUI의 최종 HTTPS 적용 여부는 미확인입니다.
