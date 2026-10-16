@@ -31,8 +31,6 @@ Web Application → MaxScale :4000 → MariaDB Master / Slave
                      └─ MariaDB Monitor (auto_failover / auto_rejoin)
 ```
 
-**주의:** 별도의 웹·pfSense 기록에는 웹 서버가 DB Master의 `3306/TCP`에 직접 연결하는 구성이 남아 있습니다. 웹 애플리케이션의 연결 주소가 MaxScale `4000/TCP`로 변경되었다는 근거는 없으므로, **MaxScale을 설치했다는 사실만으로 웹 서비스 자동 복구가 검증되었다고 주장하지 않습니다.**
-
 ## 3. 관련 문서
 
 - [PMM 설치 및 DB 모니터링 기록](docs/pmm.md)
@@ -43,7 +41,5 @@ Web Application → MaxScale :4000 → MariaDB Master / Slave
 
 ## 4. 보안 및 운영상 제한
 
-- 원본 문서에 포함된 DB root/복제/MaxScale/PMM 자격증명은 모두 제거했습니다.
-- 원본의 PMM Client는 DB `root` 계정으로 메트릭을 수집하도록 기록되어 있습니다. 운영 시 전용 최소 권한 모니터링 계정을 권장합니다.
-- 원본의 `--server-insecure-tls`는 인증서 검증을 완화하므로 운영 환경에서는 적절한 TLS 신뢰 구성이 필요합니다.
-- 원본에는 복제 상태 초기화용 `RESET MASTER`, `RESET SLAVE ALL` 명령이 포함되지만 데이터/복제 이력을 손상시킬 수 있어 이 패키지의 실행 절차에서는 제외했습니다.
+- PMM Client는 DB `root` 계정으로 메트릭을 수집하도록 기록되어 있습니다. 운영 시 전용 최소 권한 모니터링 계정을 권장합니다.
+- `--server-insecure-tls`는 인증서 검증을 완화하므로 운영 환경에서는 적절한 TLS 신뢰 구성이 필요합니다.
