@@ -2,8 +2,6 @@
 
 ## 1. 공통: 시간 동기화
 
-원본 기록의 Ubuntu 명령:
-
 ```bash
 sudo apt update -y
 sudo apt install chrony -y
@@ -13,8 +11,6 @@ sudo chronyc sources
 
 ## 2. Master 서버
 
-원본에 기록된 설치 및 초기 보안 설정:
-
 ```bash
 sudo apt install mariadb-server ufw -y
 sudo systemctl enable --now mariadb
@@ -22,7 +18,7 @@ sudo mysql_secure_installation
 sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
 
-원본 `50-server.cnf`의 핵심 설정:
+`50-server.cnf`의 핵심 설정:
 
 ```ini
 [mysqld]
@@ -31,9 +27,7 @@ server-id = 1
 log_bin = /var/log/mysql/mysql-bin.log
 ```
 
-원본에서는 `sudo ufw enable`, `sudo ufw allow 3306/tcp`, `sudo ufw reload`를 사용했습니다. 이는 모든 출발지에서 DB 포트에 접근할 수 있게 될 수 있으므로 공개용 실행 절차에서는 자동으로 적용하지 않습니다. 필요한 웹·복제·MaxScale 주소만 허용하는 방화벽 정책을 별도로 구성해야 합니다.
-
-Master에서 복제 계정을 생성하고 권한을 부여한 뒤 Binary Log 파일·위치를 확인하는 과정이 기록되어 있습니다. 아래 SQL은 **자격증명 제거한 명령 형식 예시**입니다.
+아래 SQL은 **자격증명 제거한 명령 형식 예시**입니다.
 
 ```sql
 -- 실제 실행 전 <SLAVE_IP>, <STRONG_REPLICATION_PASSWORD>를 교체
@@ -43,11 +37,9 @@ FLUSH PRIVILEGES;
 SHOW MASTER STATUS;
 ```
 
-원본에서는 `repl_user`의 Host를 `%`로 사용했습니다. 위 예시는 공개 저장소에서 권장할 수 있도록 Slave 주소로 제한한 **수정 예시**입니다. 원본의 복제 사용자 비밀번호는 제외했습니다.
+`repl_user`의 Host를 `%`로 사용했습니다. 위 예시는 공개 저장소에서 권장할 수 있도록 Slave 주소로 제한한 **수정 예시**입니다.
 
 ## 3. Slave 서버
-
-원본에 기록된 설치 및 초기 설정:
 
 ```bash
 sudo apt update -y
@@ -58,8 +50,6 @@ sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
 
 초기 Slave 설정에는 `bind-address=0.0.0.0`, `server-id=2`가 기록되어 있습니다. 이후 MaxScale 장애 조치 단계에서 Binary Log와 `log_slave_updates=1`을 추가했습니다. [Slave 설정 예시](../configs/60-safestay-slave.cnf.example)를 참고하세요.
-
-원본 복제 설정 명령의 **비밀번호 제거 버전**:
 
 ```sql
 -- MASTER_LOG_FILE / MASTER_LOG_POS는 Master에서 확인한 현재 값 사용
@@ -73,11 +63,7 @@ START SLAVE;
 SHOW SLAVE STATUS\G
 ```
 
-원본에는 `mysql-bin.000001`, `777`이 기록되어 있지만 특정 시점의 예시 값일 뿐입니다. 새 VM에서 해당 값을 그대로 사용하면 안 됩니다. 복제 시작 전 일관된 초기 데이터와 Binlog 위치를 확보해야 합니다.
-
 ## 4. 후속: GTID 기반 복제 전환 기록
-
-MaxScale 연동 단계에서 다음 명령이 문서에 남아 있습니다.
 
 ```sql
 STOP SLAVE;
@@ -85,8 +71,6 @@ CHANGE MASTER TO MASTER_USE_GTID = slave_pos;
 START SLAVE;
 SHOW SLAVE STATUS\G
 ```
-
-이 명령은 **당시 수행 기록을 설명하는 것**이며 신규 환경에서 무조건 실행하는 설치 스크립트가 아닙니다. GTID 이력, 복제 상태, MariaDB 버전 및 백업을 확인한 후 수행해야 합니다.
 
 ## 5. 네트워크 주의
 
