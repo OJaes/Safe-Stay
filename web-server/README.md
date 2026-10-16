@@ -57,8 +57,6 @@ web-server/
 | 관리자 | `admin` 역할 검사, 예약 조회·회원 권한 변경·삭제 기능 |
 | WAF 로그 화면 | 관리자 페이지에서 `/var/log/safestay_waf.log` 읽기 시도 |
 
-> WAF 로그 파일을 실제로 생성하는 ModSecurity 로깅 설정은 원본에 포함되어 있지 않습니다. 화면에 로그가 표시되었다고 단정하지 않습니다.
-
 ## 5. 설치 및 검증
 
 - [Apache2 / PHP / GoAccess 설정 기록](docs/setup.md)
