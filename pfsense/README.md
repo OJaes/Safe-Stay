@@ -2,8 +2,6 @@
 
 > SafeStay 호텔 예약 시스템의 네트워크 분리, 방화벽 접근 제어, VPN 및 원격 로그 전송 구성 기록
 
-**문서 성격:** 프로젝트 당시 작성한 `pfsense.txt`, `pfsense-rule.txt` 기반의 구축 기록입니다. 현재 pfSense VM에 접속할 수 없어 설정을 다시 추출하거나 운영 상태를 재검증하지 못했습니다. 이 저장소에 `config.xml`이나 OVA 이미지가 포함되어 있다는 뜻은 아닙니다.
-
 ## 1. 담당 범위
 
 - WEB / DB / Security / Admin 영역의 VLAN 및 게이트웨이 구성
