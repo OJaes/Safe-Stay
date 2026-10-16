@@ -13,13 +13,13 @@ sudo docker run -d -p 80:80 -p 443:443 \
   percona/pmm-server:2
 ```
 
-원본은 `ufw`에서 `80/tcp`, `443/tcp`를 허용하고 HTTPS 대시보드에 접속하도록 기록합니다. 실제 접근 허용 범위는 관리망으로 제한하는 것이 바람직합니다.
+`ufw`에서 `80/tcp`, `443/tcp`를 허용하고 HTTPS 대시보드에 접속하도록 기록합니다. 실제 접근 허용 범위는 관리망으로 제한하는 것이 바람직합니다.
 
 > `percona/pmm-server:2`는 당시 기록된 이미지 태그입니다. 이 문서는 최신 버전 설치 가이드가 아니라 프로젝트 당시 구성을 보존한 기록입니다.
 
 ## 2. Master/Slave PMM Client
 
-원본 기록상 두 DB 서버에 공통으로 설치한 항목:
+두 DB 서버에 공통으로 설치한 항목:
 
 ```bash
 sudo apt update -y
@@ -43,8 +43,8 @@ sudo pmm-admin add mysql \
   --query-source=perfschema
 ```
 
-- 원본에는 Master와 Slave 양쪽을 등록하는 명령이 있습니다.
-- Slave 쪽 원본 명령에는 노드 식별용 `172.30.1.62 generic slave-db` 인자가 추가되어 있습니다. 설치된 PMM Client 버전에 따라 실제 문법을 확인해야 합니다.
+- Master와 Slave 양쪽을 등록하는 명령이 있습니다.
+- Slave 쪽 명령에는 노드 식별용 `172.30.1.62 generic slave-db` 인자가 추가되어 있습니다. 설치된 PMM Client 버전에 따라 실제 문법을 확인해야 합니다.
 - `--server-insecure-tls` 및 비밀번호를 명령행에 직접 전달하는 방식은 실습 기록의 재현을 위한 표시이며, 운영 배포 권장 방식은 아닙니다.
 - 원본 PMM 접속 주소는 `172.30.1.63:443`입니다. pfSense 설계 주소는 `192.168.30.30`입니다.
 
